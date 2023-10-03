@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './index.css';
+import Leaderboard from './leaderboard';
+
+type Player = {
+    rank: number;
+    score: number;
+    name: string;
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [data, setData] = useState<Player[]>([]);
+    const [page, setPage] = useState(1);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`/api/leaderboard/${page}`);
+                const jsonData = await response.json();
+                setData(jsonData.result.entries);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [page]);
+
+    return (
+        <div className='container'>
+            <Leaderboard 
+                data={data} />
+        </div>
+    );
 }
 
 export default App;
+

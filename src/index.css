@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Container */
+.container {
+  width: 100%;
+  max-width: 600px; /* Adjust based on your design preference */
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.cs-title {
+  font-size: 2em;
+  background-color: #333;   /* dark background */
+  color: #f39c12;           /* orange text */
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 2px solid #f39c12;
+  font-weight: bold;
+}
+
+/* Adjusting table styles for CS theme */
+th {
+  background-color: #333;
+  color: #f39c12;
+}
+
+th, td {
+  border: 1px solid #f39c12;
+}
+
+tbody tr:hover {
+  background-color: #f39c12;
+  color: #333;
+}
+/* Button styles */
+button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
 }
